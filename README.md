@@ -67,7 +67,7 @@ Feel free to use this filter code as a starter template. After activating the GI
 
 ### Shortcode
 
-Let's just use a `<p>` tag for the caption tag.
+For starters, let's use a `<p></p>` tag for the caption tag.
 
 `[gallery size="full" columns="1" link="file" ids="114" captiontag="p"]`
 
