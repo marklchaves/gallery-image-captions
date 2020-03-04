@@ -2,12 +2,18 @@
 
 /*
 Plugin Name: Gallery Image Captions
-Plugin URI: https://caughtmyeye.dev
+Plugin URI: https://github.com/marklchaves/gallery-image-captions
 Description: Creates a filter to customise WordPress gallery image captions.
 Version: 0.0.2
-Author: mark l chaves
+Author: caught my eye
 Author URI: https://caughtmyeye.dev/about/
+License: 		GPLv2 or later
+License URI:	http://www.gnu.org/licenses/gpl-2.0.html
 */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
 
 /**
  * Get Image Meta
@@ -30,25 +36,6 @@ function get_image_meta($postvar = NULL)
         'title' => $attachment->post_title
     );
 }
-
-/**
- * Custom Filter for Gallery Image Captions
- */
-function my_gallery_image_caption($attachment_id, $captiontag, $selector, $itemtag) {
-
-    $id = $attachment_id;
-
-    // Grab the meta.
-    $my_image_meta = get_image_meta($id);
-    
-    // Here's where to customise the caption content.
-    // This example uses the meta title and caption. You can display any value
-    // from the $my_image_meta array. You can add your own HTML too.
-    return "<{$captiontag} class='wp-caption-text gallery-caption' id='{$selector}-{$id}'>
-    Title: ". $my_image_meta['title'] . "<br>Caption: ". $my_image_meta['caption'] . "<br>Description: ". $my_image_meta['description'] . "</{$captiontag}></{$itemtag}>";
-
-}
-add_filter('gallery_image_caption', 'my_gallery_image_caption', 10, 4);
 
 /**
  * Override the WordPress core media.php gallery_shortcode().

@@ -1,14 +1,63 @@
 # Gallery Image Captions (GIC)
 
-Plugin to create a filter hook to customise WordPress gallery image captions.
+This is a **plugin** to create a filter hook to customise WordPress gallery image captions.
 
-The default gallery shortcode will only display the **caption** that's set in the media's attachment property. Sometimes it would be nice to display the title too&mdash;maybe even the description.
+The default gallery shortcode will only display the **caption** that's set in the media's attachment property. Sometimes it's nice to display the title too&mdash;maybe even the description.
 
-This plugin overrides the WordPress gallery shortcode function to create a hook in the WordPress so we can do a little bit more than just displaying the caption.
+The **GIC plugin** overrides the WordPress gallery shortcode function to create a [hook](https://developer.wordpress.org/plugins/hooks/). With this _hook_ we can do a little bit more than just displaying the caption.
+
+Some premium themes hide the caption completely. This leaves photography lovers like me scratching their head and spending extra time cobbling together makeshift caption blocks.
 
 ---
 
-## Usage Examples
+## Default WordPress `gallery` Shortcode Results
+
+![Default WordPress Gallery Image Caption Example 1](default-gallery-image-captions1-1280w.jpg)
+
+![Default WordPress Gallery Image Caption Example 2](default-gallery-image-captions2-1280w.jpg)
+
+---
+
+## Custom Filter
+
+The **crux** of this plugin is the ability to filter the gallery image caption. The `gallery_image_caption` hook makes this possible. 
+
+For the usage examples below, this is the filter used.
+
+```php
+/**
+ * Custom Filter for Gallery Image Captions
+ */
+function mlc_gallery_image_caption($attachment_id, $captiontag, $selector, $itemtag) {
+
+    $id = $attachment_id;
+
+    // Grab the meta from the GIC plugin.
+    $my_image_meta = get_image_meta($id);
+    
+    /**
+     * Here's where to customise the caption content.
+     * 
+     * This example uses the meta title, caption, and description. 
+     * 
+     * You can display any value from the $my_image_meta array. 
+     * You can add your own HTML too.
+     */
+    return "<{$captiontag} class='wp-caption-text gallery-caption' id='{$selector}-{$id}'>" .
+            "Title: " . $my_image_meta['title'] . "<br>" .
+            "Caption: " . $my_image_meta['caption'] . "<br>". 
+            "Description: ". $my_image_meta['description'] . 
+        "</{$captiontag}></{$itemtag}>";
+
+}
+add_filter('gallery_image_caption', 'mlc_gallery_image_caption', 10, 4);
+```
+
+Feel free to use this filter code as a starter template. After activating the GIC plugin, add the code above to your child theme's `functions.php` file. Rename the function and tweak the return string to suit your needs.
+
+---
+
+## Usage Example 1
 
 ### Shortcode
 
@@ -41,18 +90,22 @@ Let's override the generated styles with our own style for one particular image.
 
 ### Result
 
+![Custom Gallery Image Caption Example 1](custom-gallery-image-captions1-1280w.jpg)
+
+## Usage Example 2
+
 ### Shortcode
 
-`[gallery size="large" columns="2" link="file" ids="109,106" captiontag="h4"]`
+1. `[gallery size="large" columns="2" link="file" ids="109,106" captiontag="h4"]`
+
+2. `[gallery size="medium" columns="3" link="file" ids="109,106,108" captiontag="blockquote"]`
 
 Notice that `<blockquote></blockquote>` can be used. Just for fun.
-
-`[gallery size="medium" columns="3" link="file" ids="109,106,108" captiontag="blockquote"]`
 
 ### Styling
 
 ```css
-/* Style the H4 Used in the Caption Example */
+/* 1. Style the H4 Used in the Caption Example */
 h4 {
 	color: #777777 !important;
 	font-size: 1.2rem !important;
@@ -60,4 +113,13 @@ h4 {
 }
 ```
 
+```css
+/* 2. Help Align the Blockquote */
+#gallery-3 .gallery-caption {
+    margin-left: 40px !important;
+}
+```
+
 ### Result
+
+![Custom Gallery Image Caption Example 2](custom-gallery-image-captions2-1280w.jpg)
