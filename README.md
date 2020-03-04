@@ -1,12 +1,18 @@
 # Gallery Image Captions (GIC)
 
-This is a **plugin** to create a filter hook to customise WordPress gallery image captions.
+## Synopsis
 
-The default gallery shortcode will only display the **caption** that's set in the media's attachment property. Sometimes it's nice to display the title too&mdash;maybe even the description.
+This **plugin** allows the customisation of WordPress gallery image captions. With **GIC**, we can display the title, caption, and description image attributes. We can also change/filter the rendering HTML to whatever we want.
+
+After installing and activating GIC, simply write your filter and add the WordPress `gallery` shortcode to your page. That's it!
+
+## Motivation
+
+The default WordPress gallery shortcode will only display the **caption** from the media's attachment property. Sometimes it's nice to display more like the title&mdash;even the description.
 
 The **GIC plugin** overrides the WordPress gallery shortcode function to create a [hook](https://developer.wordpress.org/plugins/hooks/). With this _hook_ we can do a little bit more than just displaying the caption.
 
-Some premium themes hide the caption completely. This leaves photography lovers like me scratching their head and spending extra time cobbling together makeshift caption blocks.
+Some premium themes hide the caption completely. This leaves photography lovers like me scratching their head and spending precious time cobbling together makeshift caption blocks.
 
 ---
 
@@ -100,7 +106,7 @@ Let's override the generated styles with our own style for one particular image.
 
 2. `[gallery size="medium" columns="3" link="file" ids="109,106,108" captiontag="blockquote"]`
 
-Notice that `<blockquote></blockquote>` can be used. Just for fun.
+Did you notice that `<blockquote></blockquote>` is used in the second shortcode. Let's give it try just for _kicks_.
 
 ### Styling
 
