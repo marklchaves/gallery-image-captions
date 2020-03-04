@@ -12,9 +12,9 @@ Some premium themes hide the caption completely. This leaves photography lovers 
 
 ## Default WordPress `gallery` Shortcode Results
 
-![Default WordPress Gallery Image Caption Example 1](default-gallery-image-captions1-1280w.jpg)
+![Default WordPress Gallery Image Caption Example 1](https://raw.githubusercontent.com/marklchaves/gallery-image-captions/master/assets/default-gallery-image-captions1-1280w.jpg)
 
-![Default WordPress Gallery Image Caption Example 2](default-gallery-image-captions2-1280w.jpg)
+![Default WordPress Gallery Image Caption Example 2](https://raw.githubusercontent.com/marklchaves/gallery-image-captions/master/assets/default-gallery-image-captions2-1280w.jpg)
 
 ---
 
@@ -90,7 +90,7 @@ Let's override the generated styles with our own style for one particular image.
 
 ### Result
 
-![Custom Gallery Image Caption Example 1](custom-gallery-image-captions1-1280w.jpg)
+![Custom Gallery Image Caption Example 1](https://raw.githubusercontent.com/marklchaves/gallery-image-captions/master/assets/custom-gallery-image-captions1-1280w.jpg)
 
 ## Usage Example 2
 
@@ -122,4 +122,4 @@ h4 {
 
 ### Result
 
-![Custom Gallery Image Caption Example 2](custom-gallery-image-captions2-1280w.jpg)
+![Custom Gallery Image Caption Example 2](https://raw.githubusercontent.com/marklchaves/gallery-image-captions/master/assets/custom-gallery-image-captions2-1280w.jpg)
