@@ -18,9 +18,9 @@ Some premium themes hide the caption completely. This leaves photography lovers 
 
 ## Default WordPress `gallery` Shortcode Results
 
-![Default WordPress Gallery Image Caption Example 1](https://raw.githubusercontent.com/marklchaves/gallery-image-captions/screenshot-1.jpg)
+![Default WordPress Gallery Image Caption Example 1](https://raw.githubusercontent.com/marklchaves/gallery-image-captions/master/assets/screenshot-1.jpg)
 
-![Default WordPress Gallery Image Caption Example 2](https://raw.githubusercontent.com/marklchaves/gallery-image-captions/screenshot-2.jpg)
+![Default WordPress Gallery Image Caption Example 2](https://raw.githubusercontent.com/marklchaves/gallery-image-captions/master/assets/screenshot-2.jpg)
 
 ---
 
@@ -96,7 +96,7 @@ Let's override the generated styles with our own style for one particular image.
 
 ### Result
 
-![Custom Gallery Image Caption Example 1](https://raw.githubusercontent.com/marklchaves/gallery-image-captions/master/assets/screenshot-4.jpg)
+![Custom Gallery Image Caption Example 1](https://raw.githubusercontent.com/marklchaves/gallery-image-captions/master/assets/screenshot-3.jpg)
 
 ## Usage Example 2
 
@@ -128,13 +128,13 @@ h4 {
 
 ### Result
 
-![Custom Gallery Image Caption Example 2](https://raw.githubusercontent.com/marklchaves/gallery-image-captions/master/assets/screenshot-5.jpg)
+![Custom Gallery Image Caption Example 2](https://raw.githubusercontent.com/marklchaves/gallery-image-captions/master/assets/screenshot-4.jpg)
 
 ---
 
 ## Example of How to Insert Links to the Image File and the Media Attachment Page
 
-![Links to Image File and Media Attachment Page](https://raw.githubusercontent.com/marklchaves/gallery-image-captions/screenshot-5.jpg)
+![Links to Image File and Media Attachment Page](https://raw.githubusercontent.com/marklchaves/gallery-image-captions/master/assets/screenshot-5.jpg)
 
 ### Filter Used for Above Example
 
