@@ -18,9 +18,9 @@ Some premium themes hide the caption completely. This leaves photography lovers 
 
 ## Default WordPress `gallery` Shortcode Results
 
-![Default WordPress Gallery Image Caption Example 1](https://raw.githubusercontent.com/marklchaves/gallery-image-captions/master/assets/default-gallery-image-captions1-1280w.jpg)
+![Default WordPress Gallery Image Caption Example 1](https://raw.githubusercontent.com/marklchaves/gallery-image-captions/screenshot-1.jpg)
 
-![Default WordPress Gallery Image Caption Example 2](https://raw.githubusercontent.com/marklchaves/gallery-image-captions/master/assets/default-gallery-image-captions2-1280w.jpg)
+![Default WordPress Gallery Image Caption Example 2](https://raw.githubusercontent.com/marklchaves/gallery-image-captions/screenshot-2.jpg)
 
 ---
 
@@ -96,7 +96,7 @@ Let's override the generated styles with our own style for one particular image.
 
 ### Result
 
-![Custom Gallery Image Caption Example 1](https://raw.githubusercontent.com/marklchaves/gallery-image-captions/master/assets/custom-gallery-image-captions1-1280w.jpg)
+![Custom Gallery Image Caption Example 1](https://raw.githubusercontent.com/marklchaves/gallery-image-captions/master/assets/screenshot-4.jpg)
 
 ## Usage Example 2
 
@@ -128,4 +128,54 @@ h4 {
 
 ### Result
 
-![Custom Gallery Image Caption Example 2](https://raw.githubusercontent.com/marklchaves/gallery-image-captions/master/assets/custom-gallery-image-captions2-1280w.jpg)
+![Custom Gallery Image Caption Example 2](https://raw.githubusercontent.com/marklchaves/gallery-image-captions/master/assets/screenshot-5.jpg)
+
+---
+
+## Example of How to Insert Links to the Image File and the Media Attachment Page
+
+![Links to Image File and Media Attachment Page](https://raw.githubusercontent.com/marklchaves/gallery-image-captions/screenshot-5.jpg)
+
+### Filter Used for Above Example
+
+```php
+    return "<{$captiontag} class='wp-caption-text gallery-caption' id='{$selector}-{$id}'>" .
+            "Title: " . $my_image_meta['title'] . "<br>" .
+            "Caption: " . $my_image_meta['caption'] . "<br>" . 
+            "Description: ". $my_image_meta['description'] . "<br>" .
+            "<a href='" . $my_image_meta['src'] . "'>Download Image</a><br>" .
+            "<a href='" . $my_image_meta['href'] . "'>View Attachment</a><br>" .
+        "</{$captiontag}></{$itemtag}>";
+```
+
+---
+
+## Responsive CSS Example
+
+I recommend adding the following media queries if you use galleries with more than one image. The two media queries below will stack 1x2 and 1x3 galleries into an nx1 or nx2 column as needed.
+
+```css
+/* Media Queries for Responsive Galleries */
+
+/**
+ * Styling based on article "How To: Style Your WordPress Gallery"
+ * by Par Nicolas.
+ * 
+ * https://theme.fm/how-to-style-your-wordpress-gallery/
+ */
+
+/* Mobile Portrait Breakpoint - 1 column */
+@media only screen and (max-width: 719.998px) {
+    .gallery-columns-2 .gallery-item,
+	.gallery-columns-3 .gallery-item { 
+	 width: 100% !important; 
+  }
+}
+
+/* Mobile Landscape and Tablet Breakpoints - 2 columns */
+@media only screen and (min-width: 720px) and (max-width: 1024px) {
+  .gallery-columns-3 .gallery-item { 
+	 width: 50% !important; 
+  }
+}
+```
