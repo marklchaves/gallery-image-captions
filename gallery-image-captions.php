@@ -4,11 +4,11 @@
 Plugin Name: Gallery Image Captions
 Plugin URI: https://github.com/marklchaves/gallery-image-captions
 Description: Creates a filter to customise WordPress gallery image captions.
-Version: 0.1.0
+Version: 0.1.1
 Author: caught my eye
 Author URI: https://caughtmyeye.dev/about/
-License: 		GPLv2 or later
-License URI:	http://www.gnu.org/licenses/gpl-2.0.html
+License: GPLv2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
 */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -18,7 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Get Image Meta
  */
-function get_image_meta($postvar = NULL)
+function galimgcaps_get_image_meta($postvar = NULL)
 {
     if (!isset($postvar)) {
         global $post;
@@ -41,7 +41,7 @@ function get_image_meta($postvar = NULL)
  * Override the WordPress core media.php gallery_shortcode().
  */
 remove_shortcode('gallery', 'gallery_shortcode');
-add_shortcode('gallery', 'my_gallery_shortcode');
+add_shortcode('gallery', 'galimgcaps_gallery_shortcode');
 
 /**
  * Builds the Gallery shortcode output.
@@ -77,7 +77,7 @@ add_shortcode('gallery', 'my_gallery_shortcode');
  * }
  * @return string HTML content to display gallery.
  */
-function my_gallery_shortcode($attr)
+function galimgcaps_gallery_shortcode($attr)
 {
     $post = get_post();
 
@@ -101,7 +101,7 @@ function my_gallery_shortcode($attr)
      * @since 2.5.0
      * @since 4.2.0 The `$instance` parameter was added.
      *
-     * @see my_gallery_shortcode()
+     * @see galimgcaps_gallery_shortcode()
      *
      * @param string $output   The gallery output. Default empty.
      * @param array  $attr     Attributes of the gallery shortcode.
@@ -284,18 +284,18 @@ function my_gallery_shortcode($attr)
 			</{$icontag}>";
 
         /**
-         * Custom Gallery Image Caption Filter
+         * Gallery Image Caption Filter
          * 
-         * I want to use the actual media
-         * attachment meta. Not sure why WordPress
-         * defaults to the gallery image caption.
+         * WordPress displays only the image caption
+         * by default. The GIC plugin allows us to
+         * display and style the other image properties.
          *  
          * $id is the attachment ID (i.e., media file).
          *
          * ~mlc 16 February 2020
          */
         $filtered_caption =
-            apply_filters('gallery_image_caption', $id, $captiontag, $selector, $itemtag);
+            apply_filters('galimgcaps_gallery_image_caption', $id, $captiontag, $selector, $itemtag);
 
         // Custom: If filtered then use the new content.
         if (!empty($filtered_caption)) {

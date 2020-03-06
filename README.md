@@ -26,7 +26,7 @@ Some premium themes hide the caption completely. This leaves photography lovers 
 
 ## Custom Filter
 
-The **crux** of this plugin is the ability to filter the gallery image caption. The `gallery_image_caption` hook makes this possible. 
+The **crux** of this plugin is the ability to filter the gallery image caption. The `galimgcaps_gallery_image_caption` hook makes this possible. 
 
 For the usage examples below, this is the filter used.
 
@@ -39,7 +39,7 @@ function mlc_gallery_image_caption($attachment_id, $captiontag, $selector, $item
     $id = $attachment_id;
 
     // Grab the meta from the GIC plugin.
-    $my_image_meta = get_image_meta($id);
+    $my_image_meta = galimgcaps_get_image_meta($id);
     
     /**
      * Here's where to customise the caption content.
@@ -56,7 +56,7 @@ function mlc_gallery_image_caption($attachment_id, $captiontag, $selector, $item
         "</{$captiontag}></{$itemtag}>";
 
 }
-add_filter('gallery_image_caption', 'mlc_gallery_image_caption', 10, 4);
+add_filter('galimgcaps_gallery_image_caption', 'mlc_gallery_image_caption', 10, 4);
 ```
 
 Feel free to use this filter code as a starter template. After activating the GIC plugin, add the code above to your child theme's `functions.php` file. Rename the function and tweak the return string to suit your needs.
