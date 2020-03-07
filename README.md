@@ -18,6 +18,8 @@ Some premium themes hide the caption completely. This leaves photography lovers 
 
 Scope out the Gallery Image Captions plugin in the official [WordPress plugins directory](https://wordpress.org/plugins/gallery-image-captions/).
 
+<a href="https://wordpress.org/plugins/gallery-image-captions/"><img src="https://user-images.githubusercontent.com/4658423/76144889-70a08280-607c-11ea-8928-ee0576567807.png" alt="GIC Logo" width="300px"></a>
+
 ---
 
 ## Default WordPress `gallery` Shortcode Results
