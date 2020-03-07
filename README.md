@@ -14,9 +14,15 @@ The **GIC plugin** overrides the WordPress gallery shortcode function to create 
 
 Some premium themes hide the caption completely. This leaves photography lovers like me scratching their head and spending precious time cobbling together makeshift caption blocks.
 
+## Official Plugin Page
+
+Scope out the Gallery Image Captions plugin in the official [WordPress plugins directory](https://wordpress.org/plugins/gallery-image-captions/).
+
 ---
 
 ## Default WordPress `gallery` Shortcode Results
+
+This is what we get out-of-the box using the `gallery` shortcode.
 
 ![Default WordPress Gallery Image Caption Example 1](https://raw.githubusercontent.com/marklchaves/gallery-image-captions/master/assets/screenshot-1.jpg)
 
@@ -67,7 +73,7 @@ Feel free to use this filter code as a starter template. After activating the GI
 
 ### Shortcode
 
-For starters, let's use a `<p></p>` tag for the caption tag.
+For starters, let's display one full-size image using a `<p></p>` tag for the caption tag.
 
 `[gallery size="full" columns="1" link="file" ids="114" captiontag="p"]`
 
@@ -102,9 +108,9 @@ Let's override the generated styles with our own style for one particular image.
 
 ### Shortcode
 
-1. `[gallery size="large" columns="2" link="file" ids="109,106" captiontag="h4"]`
+1. **A 1x2 gallery using an H4 for the caption tag:** `[gallery size="large" columns="2" link="file" ids="109,106" captiontag="h4"]`
 
-2. `[gallery size="medium" columns="3" link="file" ids="109,106,108" captiontag="blockquote"]`
+2. **A 1x3 gallery using an H4 for the caption tag:** `[gallery size="medium" columns="3" link="file" ids="109,106,108" captiontag="blockquote"]`
 
 Did you notice that `<blockquote></blockquote>` is used in the second shortcode. Let's give it try just for _kicks_.
 
