@@ -2,7 +2,7 @@
 
 ## Synopsis
 
-This **plugin** allows the customisation of WordPress gallery image captions. With **GIC**, we can display the title, caption, and description image attributes. We can also change/filter the rendering HTML to whatever we want.
+This **plugin** allows for the customisation of WordPress gallery image captions. With **GIC**, we can display the title, caption, and description image metadata. We can also change/filter the rendering HTML to whatever we want.
 
 After installing and activating GIC, simply write your filter and add the WordPress `gallery` shortcode to your page. That's it!
 
@@ -179,3 +179,9 @@ I recommend adding the following media queries if you use galleries with more th
   }
 }
 ```
+
+---
+
+## Support My Work
+
+<a href='https://ko-fi.com/D1D7YARD' target='_blank'><img height='36' style='border:0px;height:36px;' src='https://az743702.vo.msecnd.net/cdn/kofi5.png?v=2' border='0' alt='Buy Me a Coffee at ko-fi.com' /></a>
