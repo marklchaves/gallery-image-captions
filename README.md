@@ -4,7 +4,7 @@
 
 This **plugin** allows for the customisation of WordPress gallery image captions. With **GIC**, we can display the title, caption, and description image metadata. We can also change/filter the rendering HTML to whatever we want.
 
-After installing and activating GIC, simply write your filter and add the WordPress `gallery` shortcode to your page. That's it!
+After installing and activating GIC, simply write your GIC filter and add the WordPress `gallery` shortcode to your page. That's it!
 
 ## Motivation
 
@@ -24,7 +24,7 @@ Scope out the Gallery Image Captions plugin in the official [WordPress plugins d
 
 ## Default WordPress `gallery` Shortcode Results
 
-This is what we get out-of-the box using the `gallery` shortcode.
+This is what we get out-of-the box using the `gallery` shortcode. I.e., this is _before_ using GIC.
 
 ![Default WordPress Gallery Image Caption Example 1](https://raw.githubusercontent.com/marklchaves/gallery-image-captions/master/assets/screenshot-1.jpg)
 
@@ -32,7 +32,7 @@ This is what we get out-of-the box using the `gallery` shortcode.
 
 ---
 
-## Custom Filter
+## To Make GIC Work, Create a Custom GIC Filter
 
 The **crux** of this plugin is the ability to filter the gallery image caption. The `galimgcaps_gallery_image_caption` hook makes this possible. 
 
@@ -103,6 +103,8 @@ Let's override the generated styles with our own style for one particular image.
 ```
 
 ### Result
+
+These are the results after activating GIC and applying a custom GIC filter. I.e., what we get after GIC is working.
 
 ![Custom Gallery Image Caption Example 1](https://raw.githubusercontent.com/marklchaves/gallery-image-captions/master/assets/screenshot-3.jpg)
 
@@ -190,6 +192,6 @@ I recommend adding the following media queries if you use galleries with more th
 
 ---
 
-## Support My Work
+## I'll Drink to That ;-)
 
 <a href='https://ko-fi.com/D1D7YARD' target='_blank'><img height='36' style='border:0px;height:36px;' src='https://az743702.vo.msecnd.net/cdn/kofi5.png?v=2' border='0' alt='Buy Me a Coffee at ko-fi.com' /></a>
