@@ -6,6 +6,8 @@ This **plugin** allows for the customisation of WordPress gallery image captions
 
 After installing and activating GIC, simply write your GIC filter and add the WordPress `gallery` shortcode to your page. That's it!
 
+If you’ve been _dreaming_ of writing a filter to customise the gallery image captions, then this plugin is for you.
+
 ## Motivation
 
 The default WordPress gallery shortcode will only display the **caption** from the media's attachment property. Sometimes it's nice to display more like the title&mdash;even the description.
@@ -41,6 +43,8 @@ For the usage examples below, this is the filter used.
 ```php
 /**
  * Custom Filter for Gallery Image Captions
+ *
+ * Note: Avoid altering captiontag, selector, and itemtag.
  */
 function mlc_gallery_image_caption($attachment_id, $captiontag, $selector, $itemtag) {
 
