@@ -1,3 +1,5 @@
+![GIC Hero Banner](assets/banner-1554x500.jpg)
+
 # Gallery Image Captions (GIC)
 
 ## Synopsis
