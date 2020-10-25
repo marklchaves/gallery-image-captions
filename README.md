@@ -2,17 +2,19 @@
 
 ## Synopsis
 
-This **plugin** allows for the customisation of WordPress gallery image captions. With **GIC**, we can display the title, caption, and description image metadata. We can also change/filter the rendering HTML to whatever we want.
+This **plugin** allows you to customise WordPress gallery image captions. With **GIC**, you can display the title, caption, and description image metadata. You can also change/filter the rendering HTML to whatever you want.
 
 After installing and activating GIC, simply write your GIC filter and add the WordPress `gallery` shortcode to your page. That's it!
 
 If you’ve been _dreaming_ of writing a filter to customise the gallery image captions, then this plugin is for you.
 
+Visit the [live demo](https://caughtmyeyedev.000webhostapp.com/gallery-image-captions-demo) page.
+
 ## Motivation
 
 The default WordPress gallery shortcode will only display the **caption** from the media's attachment property. Sometimes it's nice to display more like the title&mdash;even the description.
 
-The **GIC plugin** overrides the WordPress gallery shortcode function to create a [hook](https://developer.wordpress.org/plugins/hooks/). With this _hook_ we can do a little bit more than just displaying the caption.
+The **GIC plugin** overrides the WordPress gallery shortcode function to create a [hook](https://developer.wordpress.org/plugins/hooks/). With this _hook_ you can do a little bit more than just displaying the caption.
 
 Some premium themes hide the caption completely. This leaves photography lovers like me scratching their head and spending precious time cobbling together makeshift caption blocks.
 
@@ -26,7 +28,7 @@ Scope out the Gallery Image Captions plugin in the official [WordPress plugins d
 
 ## Default WordPress `gallery` Shortcode Results
 
-This is what we get out-of-the box using the `gallery` shortcode. I.e., this is _before_ using GIC.
+This is what you get out-of-the box using the `gallery` shortcode. I.e., this is _before_ using GIC.
 
 ![Default WordPress Gallery Image Caption Example 1](https://raw.githubusercontent.com/marklchaves/gallery-image-captions/master/assets/screenshot-1.jpg)
 
@@ -108,7 +110,7 @@ Let's override the generated styles with our own style for one particular image.
 
 ### Result
 
-These are the results after activating GIC and applying a custom GIC filter. I.e., what we get after GIC is working.
+These are the results after activating GIC and applying a custom GIC filter. I.e., what you get after GIC is working.
 
 ![Custom Gallery Image Caption Example 1](https://raw.githubusercontent.com/marklchaves/gallery-image-captions/master/assets/screenshot-3.jpg)
 
