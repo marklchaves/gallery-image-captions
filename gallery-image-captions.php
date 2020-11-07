@@ -4,7 +4,7 @@
 Plugin Name: Gallery Image Captions
 Plugin URI: https://github.com/marklchaves/gallery-image-captions
 Description: Creates a filter to customise WordPress gallery image captions.
-Version: 1.1.0
+Version: 1.2.0
 Author: caught my eye
 Author URI: https://caughtmyeye.dev/about/
 License: GPLv2 or later
@@ -36,6 +36,36 @@ function galimgcaps_get_image_meta($postvar = NULL)
         'title' => $attachment->post_title
     );
 }
+
+ /**
+ * Display the internal unique image ID
+ * on the wp-admin Media Library page.
+ */
+
+// Add the Image ID Column
+function galimgcaps_add_image_id_column($columns) {
+    $columns['image_id'] = 'Image ID';
+    return $columns;
+}
+add_filter('manage_media_columns', 'galimgcaps_add_image_id_column');
+ 
+// Display the Image ID Column
+function galimgcaps_show_image_id_column_content($column_name, $image_id) {
+	if ( 'image_id' == $column_name )
+		echo $image_id;
+}
+add_action('manage_media_custom_column',  'galimgcaps_show_image_id_column_content', 10, 2);
+
+// Support Sorting
+function galimgcaps_sortable_image_id_column( $columns ) {
+    $columns['image_id'] = 'Image ID';
+ 
+    // To make a column 'un-sortable' remove it from the array
+    // e.g., unset($columns['date']);
+ 
+    return $columns;
+}
+add_filter( 'manage_upload_sortable_columns', 'galimgcaps_sortable_image_id_column' );
 
 /**
  * Override the WordPress core media.php gallery_shortcode().

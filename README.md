@@ -34,6 +34,10 @@ This is what you get out-of-the box using the `gallery` shortcode. I.e., this is
 
 ![Default WordPress Gallery Image Caption Example 2](https://raw.githubusercontent.com/marklchaves/gallery-image-captions/master/assets/screenshot-2.jpg)
 
+GIC automatically adds a image ID column in your WordPres Media Library. This is to help you with adding the image IDs your GIC shortcodes.
+
+![Image File ID in the WordPress Media Gallery](https://raw.githubusercontent.com/marklchaves/gallery-image-captions/master/assets/screenshot-6.jpg)
+
 ---
 
 ## To Make GIC Work, Create a Custom GIC Filter
