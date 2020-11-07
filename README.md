@@ -36,7 +36,7 @@ This is what you get out-of-the box using the `gallery` shortcode. I.e., this is
 
 GIC automatically adds a image ID column in your WordPres Media Library. This is to help you with adding the image IDs your GIC shortcodes.
 
-![Image File ID in the WordPress Media Gallery](https://raw.githubusercontent.com/marklchaves/gallery-image-captions/master/assets/screenshot-6.jpg)
+![Image File ID in the WordPress Media Gallery](https://raw.githubusercontent.com/marklchaves/gallery-image-captions/master/assets/screenshot-6.png)
 
 ---
 
