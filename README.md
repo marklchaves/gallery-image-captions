@@ -8,7 +8,7 @@ After installing and activating GIC, simply write your GIC filter and add the Wo
 
 If you’ve been _dreaming_ of writing a filter to customise the gallery image captions, then this plugin is for you.
 
-~~Visit the live demo page.~~ The demo page is moving to a new home. Please stay tuned.
+[Visit the live demo page.](https://streetphotography.blog/gallery-image-captions-demo/)
 
 ## Motivation
 
