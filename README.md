@@ -8,7 +8,7 @@ After installing and activating GIC, simply write your GIC filter and add the Wo
 
 If you’ve been _dreaming_ of writing a filter to customise the gallery image captions, then this plugin is for you.
 
-Visit the [live demo](https://caughtmyeyedev.000webhostapp.com/gallery-image-captions-demo) page.
+[Visit the live demo page.](https://streetphotography.blog/gallery-image-captions-demo/)
 
 ## Motivation
 
@@ -34,7 +34,7 @@ This is what you get out-of-the box using the `gallery` shortcode. I.e., this is
 
 ![Default WordPress Gallery Image Caption Example 2](https://raw.githubusercontent.com/marklchaves/gallery-image-captions/master/assets/screenshot-2.jpg)
 
-GIC automatically adds a image ID column in your WordPres Media Library. This is to help you with adding the image IDs your GIC shortcodes.
+GIC automatically adds an image ID column to your WordPress Media Library. This is to help you add the image IDs your GIC shortcodes.
 
 ![Image File ID in the WordPress Media Gallery](https://raw.githubusercontent.com/marklchaves/gallery-image-captions/master/assets/screenshot-6.png)
 
