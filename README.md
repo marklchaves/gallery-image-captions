@@ -122,9 +122,9 @@ These are the results after activating GIC and applying a custom GIC filter. I.e
 
 ### Shortcode
 
-1. **A 1x2 gallery using an H4 for the caption tag:** `[gallery size="large" columns="2" link="file" ids="109,106" captiontag="h4"]`
+1. **A 2 column x 1 row gallery using an H4 for the caption tag:** `[gallery size="large" columns="2" link="file" ids="109,106" captiontag="h4"]`
 
-2. **A 1x3 gallery using an H4 for the caption tag:** `[gallery size="medium" columns="3" link="file" ids="109,106,108" captiontag="blockquote"]`
+2. **A 3 column x 1 row gallery using an H4 for the caption tag:** `[gallery size="medium" columns="3" link="file" ids="109,106,108" captiontag="blockquote"]`
 
 Did you notice that `<blockquote></blockquote>` is used in the second shortcode. Let's give it try just for _kicks_.
 
@@ -172,7 +172,7 @@ h4 {
 
 ## Responsive CSS Example
 
-I recommend adding the following media queries if you use galleries with more than one image. The two media queries below will stack 1x2 and 1x3 galleries into an nx1 or nx2 column as needed.
+I recommend adding the following media queries if you use galleries with more than one image. The two media queries below will stack 2x1 and 3x1 galleries into an 1 column x n rows or 2 column x n rows as needed.
 
 ```css
 /* Media Queries for Responsive Galleries */
