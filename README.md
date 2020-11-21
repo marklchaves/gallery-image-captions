@@ -172,7 +172,7 @@ h4 {
 
 ## Responsive CSS Example
 
-I recommend adding the following media queries if you use galleries with more than one image. The two media queries below will stack 2x1 and 3x1 galleries into an 1 column x n rows or 2 column x n rows as needed.
+I recommend adding the following media queries if you use galleries with more than one image. The two media queries below will stack 2x1 and 3x1 galleries into a 1 column x n rows or 2 column x n rows as needed.
 
 ```css
 /* Media Queries for Responsive Galleries */
