@@ -4,7 +4,7 @@
 Plugin Name: Gallery Image Captions
 Plugin URI: https://github.com/marklchaves/gallery-image-captions
 Description: Creates a filter to customise WordPress gallery image captions.
-Version: 1.2.0
+Version: 1.3.0
 Author: caught my eye
 Author URI: https://caughtmyeye.dev/about/
 License: GPLv2 or later
