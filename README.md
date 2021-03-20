@@ -10,6 +10,8 @@ If you’ve been _dreaming_ of writing a filter to customise the gallery image c
 
 [Visit the live demo page.](https://streetphotography.blog/gallery-image-captions-demo/)
 
+---
+
 ## Motivation
 
 The default WordPress gallery shortcode will only display the **caption** from the media's attachment property. Sometimes it's nice to display more like the title&mdash;even the description.
@@ -17,6 +19,15 @@ The default WordPress gallery shortcode will only display the **caption** from t
 The **GIC plugin** overrides the WordPress gallery shortcode function to create a [hook](https://developer.wordpress.org/plugins/hooks/). With this _hook_ you can do a little bit more than just displaying the caption.
 
 Some premium themes hide the caption completely. This leaves photography lovers like me scratching their head and spending precious time cobbling together makeshift caption blocks.
+
+---
+
+## Installation
+
+1. Upload the **contents** of plugin zip file to the `/wp-content/plugins/gallery-image-captions` directory, or install the plugin through the WordPress plugins page directly (wp-admin > Plugins > Add New > Upload Plugin).
+1. Activate the plugin through the 'Plugins' page.
+
+---
 
 ## Official Plugin Page
 
