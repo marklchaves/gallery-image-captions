@@ -36,7 +36,7 @@ function galimgcaps_get_image_meta($postvar = NULL)
         'title' => $attachment->post_title
     );
 
-	return apply_filters( 'galimgcaps_image_meta', $image_meta, $attachment );
+    return apply_filters( 'galimgcaps_image_meta', $image_meta, $attachment );
 }
 
  /**
@@ -334,6 +334,10 @@ function galimgcaps_gallery_shortcode( $attr ) {
          */
         $filtered_caption =
             apply_filters('galimgcaps_gallery_image_caption', $id, $captiontag, $selector, $itemtag);
+		// If we just get back the ID, then there's no 
+		// galimgcaps_gallery_image_caption filter. So, set
+		// the filtered_caption to the empty string.
+		if ($filtered_caption === $id) $filtered_caption = ''; 
 
         // Custom: If filtered then use the new content.
         if (!empty($filtered_caption)) {
