@@ -45,9 +45,24 @@ This is what you get out-of-the box using the `gallery` shortcode. I.e., this is
 
 ![Default WordPress Gallery Image Caption Example 2](https://raw.githubusercontent.com/marklchaves/gallery-image-captions/master/assets/screenshot-2.jpg)
 
+This is what you'll see _after_ GIC is up and running and you use the custom GIC filter.
+
+![GIC Gallery Image Caption Example 1](https://raw.githubusercontent.com/marklchaves/gallery-image-captions/master/assets/screenshot-3.jpg)
+
+![GIC Gallery Image Caption Example 2](https://raw.githubusercontent.com/marklchaves/gallery-image-captions/master/assets/screenshot-4.jpg)
+
+![GIC Gallery Image Caption Example 2](https://raw.githubusercontent.com/marklchaves/gallery-image-captions/master/assets/screenshot-5.jpg)
+
 GIC automatically adds an image ID column to your WordPress Media Library. This is to help you add the image IDs your GIC shortcodes.
 
 ![Image File ID in the WordPress Media Gallery](https://raw.githubusercontent.com/marklchaves/gallery-image-captions/master/assets/screenshot-6.png)
+
+Version 1.4.0 comes with support for custom media attachment fields.
+
+![Example of a custom Credit field in the caption](https://raw.githubusercontent.com/marklchaves/gallery-image-captions/master/assets/screenshot-7.jpg "Example of a custom Credit field in the caption")
+
+![Custom fields in the media attachment details](https://raw.githubusercontent.com/marklchaves/gallery-image-captions/master/assets/screenshot-8.png "Custom fields in the media attachment details")
+
 
 ---
 
@@ -89,6 +104,56 @@ add_filter('galimgcaps_gallery_image_caption', 'mlc_gallery_image_caption', 10, 
 ```
 
 Feel free to use this filter code as a starter template. After activating the GIC plugin, add the code above to your child theme's `functions.php` file. Rename the function and tweak the return string to suit your needs.
+
+## New support for custom fields in version 1.4.0 
+
+### Filter To Get Custom Fields
+
+```php
+/**
+ * New GIC 1.4.0 filter for custom meta fields.
+ */
+function gic_add_custom_fields( $image_meta, $attachment ) {
+	
+	// This is how you add a custom fields to the array that
+	// GIC uses to display captions.
+	$image_meta['credit_text'] = $attachment->credit_text;
+    $image_meta['credit_link'] = $attachment->credit_link;
+
+	return $image_meta;
+}
+add_filter( 'galimgcaps_image_meta', 'gic_add_custom_fields', 10, 2 );
+```
+
+To use these two custom fields, your `galimgcaps_gallery_image_caption` would look something like this.
+
+```php
+function mlc_gallery_image_caption($attachment_id, $captiontag, $selector, $itemtag) {
+
+    $id = $attachment_id;
+
+    // Grab the meta from the GIC plugin.
+    $my_image_meta = galimgcaps_get_image_meta($id);
+
+    // If there's credit, give it where it's due complete with link.
+    $credit = $my_image_meta['description'] ? 
+        "<br><strong>Credit</strong>: <a style='display: inline;' href='" . 
+        $my_image_meta['credit_link'] . 
+        "'>" . $my_image_meta['credit_text'] . "</a>" . "<br>" : 
+        '';
+
+    /**
+     * With GIC 1.4.0 you can also add custom media attachment fields
+     * to your captions.
+     */
+    return "<{$captiontag} class='wp-caption-text gallery-caption' id='{$selector}-{$id}'>" .
+            "<strong>Caption</strong>: " . $my_image_meta['caption'] . "<br>" . 
+		    $credit .
+        	"</{$captiontag}></{$itemtag}>";
+
+}
+add_filter('galimgcaps_gallery_image_caption', 'mlc_gallery_image_caption', 10, 4);
+```
 
 ---
 
