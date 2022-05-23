@@ -343,7 +343,7 @@ function galimgcaps_gallery_shortcode( $attr ) {
         if (!empty($filtered_caption)) {
             $output .= $filtered_caption;
 
-            // Custom: Else use the default WordPress caption logic.
+        // Custom: Else use the default WordPress caption logic.
         } else {
 
             if ($captiontag && trim($attachment->post_excerpt)) {
