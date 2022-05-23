@@ -39,11 +39,17 @@ Scope out the Gallery Image Captions plugin in the official [WordPress plugins d
 
 ## Default WordPress `gallery` Shortcode Results
 
+### Before GIC 
+
 This is what you get out-of-the box using the `gallery` shortcode. I.e., this is _before_ using GIC.
 
 ![Default WordPress Gallery Image Caption Example 1](https://raw.githubusercontent.com/marklchaves/gallery-image-captions/master/assets/screenshot-1.jpg)
 
 ![Default WordPress Gallery Image Caption Example 2](https://raw.githubusercontent.com/marklchaves/gallery-image-captions/master/assets/screenshot-2.jpg)
+
+## What WordPress Galleries Look Like Using GIC
+
+### After GIC
 
 This is what you'll see _after_ GIC is up and running and you use the custom GIC filter.
 
@@ -62,7 +68,6 @@ Version 1.4.0 comes with support for custom media attachment fields.
 ![Example of a custom Credit field in the caption](https://raw.githubusercontent.com/marklchaves/gallery-image-captions/master/assets/screenshot-7.jpg "Example of a custom Credit field in the caption")
 
 ![Custom fields in the media attachment details](https://raw.githubusercontent.com/marklchaves/gallery-image-captions/master/assets/screenshot-8.png "Custom fields in the media attachment details")
-
 
 ---
 
