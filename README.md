@@ -4,7 +4,7 @@
 
 This **plugin** allows you to customise WordPress gallery image captions. With **GIC**, you can display the title, caption, and description image metadata. You can also change/filter the rendering HTML to whatever you want.
 
-After installing and activating GIC, simply write your GIC filter and add the WordPress `gallery` shortcode to your page. That's it!
+After installing and activating GIC, write your filter and add the WordPress [Gallery shortcode](https://codex.wordpress.org/Gallery_Shortcode) to your page.
 
 If you’ve been _dreaming_ of writing a filter to customise the gallery image captions, then this plugin is for you.
 

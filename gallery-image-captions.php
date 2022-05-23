@@ -1,15 +1,15 @@
 <?php 
 
-/*
-Plugin Name: Gallery Image Captions
-Plugin URI: https://github.com/marklchaves/gallery-image-captions
-Description: Creates a filter to customise WordPress gallery image captions.
-Version: 1.3.0
-Author: caught my eye
-Author URI: https://www.caughtmyeye.cc
-License: GPLv2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
-*/
+/**
+ * Plugin Name: Gallery Image Captions
+ * Plugin URI: https://github.com/marklchaves/gallery-image-captions
+ * Description: Creates a filter to customise WordPress gallery image captions.
+ * Version: 1.4.0
+ * Author: caught my eye
+ * Author URI: https://www.caughtmyeye.cc
+ * License: GPLv2 or later
+ * License URI: http://www.gnu.org/licenses/gpl-2.0.html
+ */
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
@@ -27,7 +27,7 @@ function galimgcaps_get_image_meta($postvar = NULL)
 
     $attachment = get_post($postvar);
 
-    return array(
+	$image_meta = array(
         'alt' => get_post_meta($attachment->ID, '_wp_attachment_image_alt', true),
         'caption' => $attachment->post_excerpt,
         'description' => $attachment->post_content,
@@ -35,6 +35,8 @@ function galimgcaps_get_image_meta($postvar = NULL)
         'src' => $attachment->guid,
         'title' => $attachment->post_title
     );
+
+    return apply_filters( 'galimgcaps_image_meta', $image_meta, $attachment );
 }
 
  /**
@@ -332,12 +334,16 @@ function galimgcaps_gallery_shortcode( $attr ) {
          */
         $filtered_caption =
             apply_filters('galimgcaps_gallery_image_caption', $id, $captiontag, $selector, $itemtag);
+		// If we just get back the ID, then there's no 
+		// galimgcaps_gallery_image_caption filter. So, set
+		// the filtered_caption to the empty string.
+		if ($filtered_caption === $id) $filtered_caption = ''; 
 
         // Custom: If filtered then use the new content.
         if (!empty($filtered_caption)) {
             $output .= $filtered_caption;
 
-            // Custom: Else use the default WordPress caption logic.
+        // Custom: Else use the default WordPress caption logic.
         } else {
 
             if ($captiontag && trim($attachment->post_excerpt)) {
