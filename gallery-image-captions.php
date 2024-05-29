@@ -4,7 +4,7 @@
  * Plugin Name: Gallery Image Captions
  * Plugin URI: https://github.com/marklchaves/gallery-image-captions
  * Description: Creates a filter to customise WordPress gallery image captions.
- * Version: 1.4.0
+ * Version: 1.4.1
  * Author: caught my eye
  * Author URI: https://www.caughtmyeye.cc
  * License: GPLv2 or later
@@ -82,6 +82,25 @@ add_shortcode('gallery', 'galimgcaps_gallery_shortcode');
  * WordPress images on a post.
  *
  * @since 2.5.0
+ * @since 2.8.0 Added the `$attr` parameter to set the shortcode output. New attributes included
+ *              such as `size`, `itemtag`, `icontag`, `captiontag`, and columns. Changed markup from
+ *              `div` tags to `dl`, `dt` and `dd` tags. Support more than one gallery on the
+ *              same page.
+ * @since 2.9.0 Added support for `include` and `exclude` to shortcode.
+ * @since 3.5.0 Use get_post() instead of global `$post`. Handle mapping of `ids` to `include`
+ *              and `orderby`.
+ * @since 3.6.0 Added validation for tags used in gallery shortcode. Add orientation information to items.
+ * @since 3.7.0 Introduced the `link` attribute.
+ * @since 3.9.0 `html5` gallery support, accepting 'itemtag', 'icontag', and 'captiontag' attributes.
+ * @since 4.0.0 Removed use of `extract()`.
+ * @since 4.1.0 Added attribute to `wp_get_attachment_link()` to output `aria-describedby`.
+ * @since 4.2.0 Passed the shortcode instance ID to `post_gallery` and `post_playlist` filters.
+ * @since 4.6.0 Standardized filter docs to match documentation standards for PHP.
+ * @since 5.1.0 Code cleanup for WPCS 1.0.0 coding standards.
+ * @since 5.3.0 Saved progress of intermediate image creation after upload.
+ * @since 5.5.0 Ensured that galleries can be output as a list of links in feeds.
+ * @since 5.6.0 Replaced order-style PHP type conversion functions with typecasts. Fix logic for
+ *              an array of image dimensions.
  *
  * @param array $attr {
  *     Attributes of the gallery shortcode.
@@ -180,6 +199,7 @@ function galimgcaps_gallery_shortcode( $attr ) {
 			$attachments[ $val->ID ] = $_attachments[ $key ];
 		}
 	} elseif ( ! empty( $atts['exclude'] ) ) {
+		$post_parent_id = $id;
 		$attachments = get_children(
 			array(
 				'post_parent'    => $id,
@@ -192,6 +212,7 @@ function galimgcaps_gallery_shortcode( $attr ) {
 			)
 		);
 	} else {
+		$post_parent_id = $id;
 		$attachments = get_children(
 			array(
 				'post_parent'    => $id,
@@ -202,6 +223,17 @@ function galimgcaps_gallery_shortcode( $attr ) {
 				'orderby'        => $atts['orderby'],
 			)
 		);
+	}
+
+	if ( ! empty( $post_parent_id ) ) {
+		$post_parent = get_post( $post_parent_id );
+
+		// Terminate the shortcode execution if the user cannot read the post or it is password-protected.
+		if ( ! is_post_publicly_viewable( $post_parent->ID ) && ! current_user_can( 'read_post', $post_parent->ID )
+			|| post_password_required( $post_parent )
+		) {
+			return '';
+		}
 	}
 
 	if ( empty( $attachments ) ) {
