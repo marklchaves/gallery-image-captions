@@ -130,7 +130,7 @@ function galimgcaps_gallery_shortcode( $attr ) {
 	$post = get_post();
 
 	static $instance = 0;
-	$instance++;
+	++$instance;
 
 	if ( ! empty( $attr['ids'] ) ) {
 		// 'ids' is explicitly ordered, unless you specify otherwise.
@@ -200,7 +200,7 @@ function galimgcaps_gallery_shortcode( $attr ) {
 		}
 	} elseif ( ! empty( $atts['exclude'] ) ) {
 		$post_parent_id = $id;
-		$attachments = get_children(
+		$attachments    = get_children(
 			array(
 				'post_parent'    => $id,
 				'exclude'        => $atts['exclude'],
@@ -213,7 +213,7 @@ function galimgcaps_gallery_shortcode( $attr ) {
 		);
 	} else {
 		$post_parent_id = $id;
-		$attachments = get_children(
+		$attachments    = get_children(
 			array(
 				'post_parent'    => $id,
 				'post_status'    => 'inherit',
@@ -378,9 +378,9 @@ function galimgcaps_gallery_shortcode( $attr ) {
         // Custom: Else use the default WordPress caption logic.
         } else {
 
-            if ($captiontag && trim($attachment->post_excerpt)) {
+            if ( $captiontag && trim( $attachment->post_excerpt ) ) {
                 $output .= "
-					<{$captiontag} class='wp-caption-text gallery-caption' id='$selector-$id'>" . wptexturize($attachment->post_excerpt) . "
+					<{$captiontag} class='wp-caption-text gallery-caption' id='$selector-$id'>" . wptexturize( $attachment->post_excerpt ) . "
 					</{$captiontag}>";
             }
 
